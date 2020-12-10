@@ -147,6 +147,11 @@ class Airplane {
   grade(student, subject) {
     return `${student.name} receives a perfect score on ${subject}`;
   }
+  updateGrade(student) {
+    const positiveOrNegative = Math.round(Math.random()) * 2 - 1;
+    const points = Math.round(Math.random() * 100) * positiveOrNegative;
+    student.setGrade(student.getGrade() + points);
+  }
  }
   /*
     TASK 5
@@ -169,6 +174,7 @@ class Airplane {
       this.previousBackground = attributes.previousBackground;
       this.className = attributes.className;
       this.favSubjects = attributes.favSubjects;
+      this.grade = 100;
     }
     listSubjects() {
       return `Loving ${this.favSubjects.join(", ")}!`;
@@ -178,6 +184,15 @@ class Airplane {
     }
     sprintChallenge(subject) {
       return `${this.name} has begun spring challenge on ${subject}`;
+    }
+    setGrade(grade) {
+      this.grade = grade;
+    }
+    getGrade() {
+      return this.grade;
+    }
+    graduate() {
+      return this.grade > 70;
     }
  }
   
@@ -215,6 +230,7 @@ class Airplane {
         + This method, when called, will check the grade of the student and see if they're ready to graduate from Lambda School
         + If the student's grade is above a 70% let them graduate! Otherwise go back to grading their assignments to increase their score.
   */
+
 
 
   //End of Challenge
